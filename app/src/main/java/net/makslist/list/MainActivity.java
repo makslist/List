@@ -26,11 +26,7 @@ public class MainActivity extends Activity {
         // use a linear layout manager
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        List<String> input = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            input.add("Test" + i);
-        }// define an adapter
-        mAdapter = new ListAdapter(input);
+        mAdapter = new ListAdapter();
         recyclerView.setAdapter(mAdapter);
     }
 }
