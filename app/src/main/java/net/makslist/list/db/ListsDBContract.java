@@ -8,14 +8,14 @@ public final class ListsDBContract {
 
     public static final String TABLE_NAME = "list";
     public static final String COLUMN_NAME = "name";
-    static final String COLUMN_TYPE = "type";
-    static final String COLUMN_PRIORITY = "priority";
-    static final String COLUMN_DESCRIPTION = "description";
+    public static final String COLUMN_TYPE = "type";
+    public static final String COLUMN_PRIORITY = "priority";
+    public static final String COLUMN_DESCRIPTION = "description";
 
     public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " +
         TABLE_NAME + " (" +
         _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-        COLUMN_NAME + " TEXT, " +
+        COLUMN_NAME + " UNIQUE TEXT, " +
         COLUMN_TYPE + " TEXT, " +
         COLUMN_DESCRIPTION + " TEXT, " +
         COLUMN_PRIORITY + " INTEGER" + ")";

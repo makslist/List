@@ -27,7 +27,7 @@ public class ListsSQLiteHelper extends SQLiteOpenHelper {
     onCreate(sqLiteDatabase);
   }
 
-  public Cursor readAllKistsFromDB() {
+  public Cursor readAllListsFromDB() {
     SQLiteDatabase database = this.getReadableDatabase();
 
     String[] projection = {
@@ -55,7 +55,7 @@ public class ListsSQLiteHelper extends SQLiteOpenHelper {
   }
 
   public long saveListToDB(String name, String description, String type) {
-    SQLiteDatabase database = getWritableDatabase();
+    SQLiteDatabase database = this.getWritableDatabase();
 
     ContentValues values = new ContentValues();
     values.put(ListsDBContract.TableList.COLUMN_NAME, name);

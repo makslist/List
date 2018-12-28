@@ -35,7 +35,7 @@ public class ListsAdapter extends RecyclerView.Adapter<ListsAdapter.ListsViewHol
 
   @Override
   public int getItemCount() {
-    return cursor.getCount();//lists.size();
+    return cursor.getCount();
   }
 
   class ListsViewHolder extends RecyclerView.ViewHolder {
@@ -67,7 +67,7 @@ public class ListsAdapter extends RecyclerView.Adapter<ListsAdapter.ListsViewHol
 
   }
 
-  void setLongClickListener(ItemLongClickListener longClckListener) {
+  public void setLongClickListener(ItemLongClickListener longClckListener) {
     this.longClickListener = longClckListener;
   }
 

@@ -1,21 +1,22 @@
 package net.makslist.list;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 import net.makslist.list.databinding.ActivityMainBinding;
 import net.makslist.list.db.ListsDBContract;
 import net.makslist.list.db.ListsSQLiteHelper;
 
-public class MainActivity extends Activity implements ListsAdapter.ItemLongClickListener {
+public class MainActivity extends AppCompatActivity implements ListsAdapter.ItemLongClickListener {
 
   private ListsAdapter adapter;
   private ActivityMainBinding binding;
@@ -27,12 +28,15 @@ public class MainActivity extends Activity implements ListsAdapter.ItemLongClick
 
     binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
+    Toolbar toolbar = binding.toolbar;
+    String title = getString(R.string.app_name);
+    toolbar.setTitle(title);
+    setSupportActionBar(toolbar);
     RecyclerView recyclerView = binding.listRecyclerView;
-    recyclerView.setHasFixedSize(true);
-    LinearLayoutManager layout = new LinearLayoutManager(this);
+//    recyclerView.setHasFixedSize(true);
+    LinearLayoutManager layout = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
     recyclerView.setLayoutManager(layout);
-    DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), layout.getOrientation());
-    recyclerView.addItemDecoration(dividerItemDecoration);
+    recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), layout.getOrientation()));
 
     reload();
 
@@ -61,7 +65,7 @@ public class MainActivity extends Activity implements ListsAdapter.ItemLongClick
 
   private void reload() {
     ListsSQLiteHelper helper = new ListsSQLiteHelper(this);
-    Cursor cursor = helper.readAllKistsFromDB();
+    Cursor cursor = helper.readAllListsFromDB();
     adapter = new ListsAdapter(this, cursor);
     adapter.setLongClickListener(this);
     binding.listRecyclerView.setAdapter(adapter);
