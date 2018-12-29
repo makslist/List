@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import net.makslist.list.databinding.ListLayoutBinding;
+import net.makslist.list.databinding.ListItemLayoutBinding;
 import net.makslist.list.db.ListsDBContract;
 
 public class ListsAdapter extends RecyclerView.Adapter<ListsAdapter.ListsViewHolder> {
@@ -23,7 +23,7 @@ public class ListsAdapter extends RecyclerView.Adapter<ListsAdapter.ListsViewHol
 
   @Override
   public ListsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-    View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_layout, parent, false);
+    View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_layout, parent, false);
     return new ListsViewHolder(v);
   }
 
@@ -40,7 +40,7 @@ public class ListsAdapter extends RecyclerView.Adapter<ListsAdapter.ListsViewHol
 
   class ListsViewHolder extends RecyclerView.ViewHolder {
 
-    private ListLayoutBinding binding;
+    private ListItemLayoutBinding binding;
 
     ListsViewHolder(View v) {
       super(v);

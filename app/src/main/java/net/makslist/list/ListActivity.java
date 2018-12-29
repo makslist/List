@@ -5,18 +5,18 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
-import net.makslist.list.databinding.ActivityListBinding;
+import net.makslist.list.databinding.ActivityAddListBinding;
 import net.makslist.list.db.ListsSQLiteHelper;
 
 public class ListActivity extends AppCompatActivity {
 
   private static final String TAG = "EmployerActivity";
-  private ActivityListBinding binding;
+  private ActivityAddListBinding binding;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    binding = DataBindingUtil.setContentView(this, R.layout.activity_list);
+    binding = DataBindingUtil.setContentView(this, R.layout.activity_add_list);
 
     binding.saveButton.setOnClickListener(new View.OnClickListener() {
       @Override
